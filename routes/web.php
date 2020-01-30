@@ -16,7 +16,8 @@
 //});
 
 $router->get(
-    '/', function () {
+    '/',
+    function () {
         return view('index', []);
     }
 );

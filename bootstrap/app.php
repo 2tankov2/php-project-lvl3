@@ -46,6 +46,12 @@ $app->singleton(
     App\Console\Kernel::class
 );
 
+if (env('APP_DEBUG')) {
+    $app->register(Barryvdh\Debugbar\LumenServiceProvider::class);
+    $app->configure('app');
+    $app->configure('debugbar');
+}
+
 /*
 |--------------------------------------------------------------------------
 | Register Middleware

@@ -7,6 +7,7 @@ php:
   - '7.3'
 
 install:
+  - composer self-update
   - make install
 
 before_script:
@@ -17,4 +18,4 @@ before_script:
 script: make lint test
 
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - ./cc-test-reporter after-build -t clover --exit-code $TRAVIS_TEST_RESULT

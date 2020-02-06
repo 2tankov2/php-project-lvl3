@@ -13,5 +13,8 @@
                 @yield('content')
             </div>
         </nav>
+        <div class="jumbotron">
+            @yield('analyser')
+        </div>
     </body>
 </html>

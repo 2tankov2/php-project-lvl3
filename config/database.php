@@ -59,11 +59,11 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => $dbOptsHeroku["host"],
+            'host' => $dbOptsHeroku["host"] ?? env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', 5432),
             'database' => ltrim($dbOptsHeroku["path"], '/'),
-            'username' => $dbOptsHeroku["user"],
-            'password' => $dbOptsHeroku["pass"],
+            'username' => $dbOptsHeroku["user"] ?? null,
+            'password' => $dbOptsHeroku["pass"] ?? null,
             'charset' => env('DB_CHARSET', 'utf8'),
             'prefix' => env('DB_PREFIX', ''),
             'schema' => env('DB_SCHEMA', 'public'),

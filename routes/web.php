@@ -21,3 +21,12 @@ $router->get(
         return view('index', []);
     }
 );
+
+$router->get('/domains', ['uses' => 'DomainController@main', 'as' => 'listDomains']);
+
+$router->get('/domains/{id}', [
+    'uses' => 'DomainController@show',
+    'as' => 'showDomain'
+]);
+
+$router->post('/domains', 'DomainController@store');

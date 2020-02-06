@@ -25,6 +25,12 @@ $app->withFacades();
 
 $app->withEloquent();
 
+if (env('APP_DEBUG')) {
+    $app->configure('app');
+    $app->configure('debugbar');
+    $app->register(Barryvdh\Debugbar\LumenServiceProvider::class);
+}
+
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings
@@ -45,12 +51,6 @@ $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
     App\Console\Kernel::class
 );
-
-if (env('APP_DEBUG')) {
-    $app->register(Barryvdh\Debugbar\LumenServiceProvider::class);
-    $app->configure('app');
-    $app->configure('debugbar');
-}
 
 /*
 |--------------------------------------------------------------------------

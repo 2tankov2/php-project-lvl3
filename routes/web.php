@@ -15,12 +15,7 @@
     //return $router->app->version();
 //});
 
-$router->get(
-    '/',
-    function () {
-        return view('index', []);
-    }
-);
+$router->get('/', ['uses' => 'DomainController@index', 'as' => 'main']);
 
 $router->get('/domains', ['uses' => 'DomainController@main', 'as' => 'listDomains']);
 

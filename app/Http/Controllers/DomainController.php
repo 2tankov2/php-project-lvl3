@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Domain;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class DomainController extends Controller
 {
@@ -17,9 +19,9 @@ class DomainController extends Controller
         //
     }
 
-    public function index()
+    public function index($errors = null)
     {
-        return view('index', []);
+        return view('index', ['errors' => $errors]);
     }
 
     public function main()
@@ -31,27 +33,21 @@ class DomainController extends Controller
 
     public function show($id)
     {
-        return Domain::findOrFail($id);
+        $dataDomain = Domain::findOrFail($id);
+        return view('showDomain', ['domain' => $dataDomain]);
     }
 
     public function store(Request $request)
     {
-        //$id = $request->input('id');
-        //$name = $request->input('name');
-        //$allData = $request->all();
-        //return redirect()->route('showDomain', ['id' => $id]);
-        //return $allData;
+        $errors = null;
+        $validator = Validator::make($request->all(), ['name' => 'required|active_url']);
+        if ($validator->fails()) {
+            $errors = $validator->errors()->get('name');
+            return self::index($errors);
+        }
 
-
-        //$domain = new Domain;
-
-        //$domain->name = $request->name;
-
-        //$domain->save();
-
-        $name = $request->input('name');
-        $domain = Domain::create(['name' => $name]);
-        return redirect()->route('showDomain',  ['id' => $domain->id]);
+        $domain = Domain::create($request->all());
+        return redirect()->route('showDomain', ['id' => $domain->id]);
     }
 
     //

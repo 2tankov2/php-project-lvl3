@@ -8,3 +8,4 @@ Homestead.yaml
 /build/
 /.vscode
 database/database.sqlite
+/storage/debugbar

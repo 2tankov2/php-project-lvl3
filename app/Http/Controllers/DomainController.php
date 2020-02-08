@@ -46,7 +46,8 @@ class DomainController extends Controller
             return self::index($errors);
         }
 
-        $domain = Domain::create($request->all());
+        $url = $request->input('name');
+        $domain = Domain::updateOrCreate(['name' => $url], ['updated_at' => date("Y-m-d H:i:s")]);
         return redirect()->route('showDomain', ['id' => $domain->id]);
     }
 

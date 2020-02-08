@@ -7,5 +7,4 @@ Homestead.yaml
 *.cache
 /build/
 /.vscode
-database/database.sqlite
 /storage/debugbar

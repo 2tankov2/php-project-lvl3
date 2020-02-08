@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests;
+
 use Laravel\Lumen\Testing\DatabaseMigrations;
 use Laravel\Lumen\Testing\DatabaseTransactions;
 
@@ -22,10 +24,8 @@ class AppTest extends TestCase
 
     public function testHasRecordInDB()
     {
-        $this->seeInDatabase(
-            'domains', [
+        $this->seeInDatabase('domains', [
             'name' => 'https://www.rambler.ru/'
-            ]
-        );
+        ]);
     }
 }

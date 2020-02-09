@@ -3,6 +3,7 @@
 namespace Tests;
 
 use Laravel\Lumen\Testing\TestCase as BaseTestCase;
+use App\Domain;
 
 abstract class TestCase extends BaseTestCase
 {

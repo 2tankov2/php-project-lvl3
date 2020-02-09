@@ -4,6 +4,7 @@
 
 use App\User;
 use Faker\Generator as Faker;
+use App\Domain;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +21,11 @@ $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
+    ];
+});
+
+$factory->define(Domain::class, function (Faker $faker) {
+    return [
+        'name' => $faker->name,
     ];
 });

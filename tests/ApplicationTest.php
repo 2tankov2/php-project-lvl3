@@ -32,4 +32,10 @@ class AppTest extends TestCase
 
         $this->assertEquals(1, Domain::count());
     }
+
+    public function testShowDomains()
+    {
+        $this->call('GET', '/domains');
+        $this->assertResponseOk();
+    }
 }

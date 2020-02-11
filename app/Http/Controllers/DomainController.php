@@ -26,7 +26,7 @@ class DomainController extends Controller
 
     public function main()
     {
-        $domains = Domain::all()->toArray();
+        $domains = Domain::paginate(2);;
 
         return view('domains', ['domains' => $domains]);
     }

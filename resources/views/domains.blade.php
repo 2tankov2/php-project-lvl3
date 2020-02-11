@@ -14,8 +14,13 @@
 <div class="container">
     <h3 class="display-5">Все адреса страниц</h3>
     <hr/>
-    @foreach($domains as $domain)
-        <p>{{ $domain['name'] }}</p>
-    @endforeach
+    <div class="list-group">
+        @foreach($domains->all() as $domain)
+            <a class="list-group-item list-group-item-success" href={{ route('showDomain', ['id' => $domain['id']]) }}>{{ $domain['name'] }}</a>
+        @endforeach
+    </div>
+    <div class="pagination">
+        {{ $domains->links() }}
+    </div>
 </div>
 @endsection

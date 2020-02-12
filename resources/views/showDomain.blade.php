@@ -21,8 +21,11 @@
                 <th scope="col">Name</th>
                 <th scope="col">Updated</th>
                 <th scope="col">Created</th>
+                <th scope="col">Status_Code</th>
+                <th scope="col">Content_Length</th>
             </tr>
         </thead>
+        {{ var_dump($domain) }}
         <tbody>
             <tr>
                 <td>
@@ -36,6 +39,12 @@
                 </td>
                 <td>
                     {{ $domain['created_at'] }}
+                </td>
+                <td>
+                    {{ $domain['status_code'] }}
+                </td>
+                <td>
+                    {{ $domain['content_length'] }}
                 </td>
             </tr>
         </tbody>

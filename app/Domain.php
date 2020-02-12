@@ -12,6 +12,6 @@ class Domain extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name', 'updated_at', 'content_length', 'status_code', 'body'
     ];
 }

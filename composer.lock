@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c50239137fde79c9490f3e54bd307cf4",
+    "content-hash": "f5352e7d70d924afcbf85f098c426ac5",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -248,17 +248,206 @@
             "time": "2020-01-20T21:40:59+00:00"
         },
         {
-            "name": "illuminate/auth",
-            "version": "v6.14.0",
+            "name": "guzzlehttp/guzzle",
+            "version": "6.5.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/illuminate/auth.git",
-                "reference": "6da796cd3062f4752e073c77d30cfe75e269db18"
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "43ece0e75098b7ecd8d13918293029e555a50f82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/auth/zipball/6da796cd3062f4752e073c77d30cfe75e269db18",
-                "reference": "6da796cd3062f4752e073c77d30cfe75e269db18",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/43ece0e75098b7ecd8d13918293029e555a50f82",
+                "reference": "43ece0e75098b7ecd8d13918293029e555a50f82",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/promises": "^1.0",
+                "guzzlehttp/psr7": "^1.6.1",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4 || ^7.0",
+                "psr/log": "^1.1"
+            },
+            "suggest": {
+                "ext-intl": "Required for Internationalized Domain Name (IDN) support",
+                "psr/log": "Required for using the Log middleware"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2019-12-23T11:57:10+00:00"
+        },
+        {
+            "name": "guzzlehttp/promises",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/promises.git",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle promises library",
+            "keywords": [
+                "promise"
+            ],
+            "time": "2016-12-20T10:07:11+00:00"
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "1.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "239400de7a173fe9901b9ac7c06497751f00727a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/239400de7a173fe9901b9ac7c06497751f00727a",
+                "reference": "239400de7a173fe9901b9ac7c06497751f00727a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0",
+                "ralouphie/getallheaders": "^2.0.5 || ^3.0.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "ext-zlib": "*",
+                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
+            },
+            "suggest": {
+                "zendframework/zend-httphandlerrunner": "Emit PSR-7 responses"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "homepage": "https://github.com/Tobion"
+                }
+            ],
+            "description": "PSR-7 message implementation that also provides common utility methods",
+            "keywords": [
+                "http",
+                "message",
+                "psr-7",
+                "request",
+                "response",
+                "stream",
+                "uri",
+                "url"
+            ],
+            "time": "2019-07-01T23:21:34+00:00"
+        },
+        {
+            "name": "illuminate/auth",
+            "version": "v6.15.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/auth.git",
+                "reference": "a72970ae6bd4dc5e17c717670719c1b8b0e48862"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/auth/zipball/a72970ae6bd4dc5e17c717670719c1b8b0e48862",
+                "reference": "a72970ae6bd4dc5e17c717670719c1b8b0e48862",
                 "shasum": ""
             },
             "require": {
@@ -296,11 +485,11 @@
             ],
             "description": "The Illuminate Auth package.",
             "homepage": "https://laravel.com",
-            "time": "2020-01-27T23:25:53+00:00"
+            "time": "2020-02-11T14:21:30+00:00"
         },
         {
             "name": "illuminate/broadcasting",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/broadcasting.git",
@@ -351,7 +540,7 @@
         },
         {
             "name": "illuminate/bus",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/bus.git",
@@ -396,7 +585,7 @@
         },
         {
             "name": "illuminate/cache",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/cache.git",
@@ -447,7 +636,7 @@
         },
         {
             "name": "illuminate/config",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/config.git",
@@ -491,16 +680,16 @@
         },
         {
             "name": "illuminate/console",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/console.git",
-                "reference": "8accadb1f62ac4221467b393d4269e55f1d15349"
+                "reference": "98ae7a594e46a67c2a4ec58156fa4440bca83e3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/console/zipball/8accadb1f62ac4221467b393d4269e55f1d15349",
-                "reference": "8accadb1f62ac4221467b393d4269e55f1d15349",
+                "url": "https://api.github.com/repos/illuminate/console/zipball/98ae7a594e46a67c2a4ec58156fa4440bca83e3e",
+                "reference": "98ae7a594e46a67c2a4ec58156fa4440bca83e3e",
                 "shasum": ""
             },
             "require": {
@@ -538,11 +727,11 @@
             ],
             "description": "The Illuminate Console package.",
             "homepage": "https://laravel.com",
-            "time": "2020-01-30T15:07:20+00:00"
+            "time": "2020-02-11T14:01:12+00:00"
         },
         {
             "name": "illuminate/container",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -586,16 +775,16 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "f1326dfae72c646a8598138b446347954f5e991e"
+                "reference": "a6c7ef89684ce0e724b42c6bfe4b1107aee28a1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/f1326dfae72c646a8598138b446347954f5e991e",
-                "reference": "f1326dfae72c646a8598138b446347954f5e991e",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/a6c7ef89684ce0e724b42c6bfe4b1107aee28a1d",
+                "reference": "a6c7ef89684ce0e724b42c6bfe4b1107aee28a1d",
                 "shasum": ""
             },
             "require": {
@@ -626,20 +815,20 @@
             ],
             "description": "The Illuminate Contracts package.",
             "homepage": "https://laravel.com",
-            "time": "2020-01-07T13:47:03+00:00"
+            "time": "2020-02-08T09:26:21+00:00"
         },
         {
             "name": "illuminate/database",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "1f9bb9c0c0caffdecb951708e75f47b03b81fc97"
+                "reference": "863f15348c7c577e42f7bbf0a98f6c1e9e215a44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/1f9bb9c0c0caffdecb951708e75f47b03b81fc97",
-                "reference": "1f9bb9c0c0caffdecb951708e75f47b03b81fc97",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/863f15348c7c577e42f7bbf0a98f6c1e9e215a44",
+                "reference": "863f15348c7c577e42f7bbf0a98f6c1e9e215a44",
                 "shasum": ""
             },
             "require": {
@@ -686,11 +875,11 @@
                 "orm",
                 "sql"
             ],
-            "time": "2020-02-04T14:04:17+00:00"
+            "time": "2020-02-06T14:14:17+00:00"
         },
         {
             "name": "illuminate/encryption",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/encryption.git",
@@ -737,16 +926,16 @@
         },
         {
             "name": "illuminate/events",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
-                "reference": "977a641a8a09ef7fec6e9a69d590149532232405"
+                "reference": "45ce14fc658ea221492cfa5dea4eda549acd8bb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/events/zipball/977a641a8a09ef7fec6e9a69d590149532232405",
-                "reference": "977a641a8a09ef7fec6e9a69d590149532232405",
+                "url": "https://api.github.com/repos/illuminate/events/zipball/45ce14fc658ea221492cfa5dea4eda549acd8bb2",
+                "reference": "45ce14fc658ea221492cfa5dea4eda549acd8bb2",
                 "shasum": ""
             },
             "require": {
@@ -778,11 +967,11 @@
             ],
             "description": "The Illuminate Events package.",
             "homepage": "https://laravel.com",
-            "time": "2020-02-03T14:27:32+00:00"
+            "time": "2020-02-10T13:48:55+00:00"
         },
         {
             "name": "illuminate/filesystem",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/filesystem.git",
@@ -834,7 +1023,7 @@
         },
         {
             "name": "illuminate/hashing",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/hashing.git",
@@ -878,7 +1067,7 @@
         },
         {
             "name": "illuminate/http",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/http.git",
@@ -928,7 +1117,7 @@
         },
         {
             "name": "illuminate/log",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/log.git",
@@ -973,7 +1162,7 @@
         },
         {
             "name": "illuminate/pagination",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pagination.git",
@@ -1018,7 +1207,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -1063,16 +1252,16 @@
         },
         {
             "name": "illuminate/queue",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/queue.git",
-                "reference": "b82d0be3c3bd332f6fceb1c5d883f04ac42fe7c2"
+                "reference": "5852c9c64ba8d95ab4685b203d5b5a11a12613fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/queue/zipball/b82d0be3c3bd332f6fceb1c5d883f04ac42fe7c2",
-                "reference": "b82d0be3c3bd332f6fceb1c5d883f04ac42fe7c2",
+                "url": "https://api.github.com/repos/illuminate/queue/zipball/5852c9c64ba8d95ab4685b203d5b5a11a12613fa",
+                "reference": "5852c9c64ba8d95ab4685b203d5b5a11a12613fa",
                 "shasum": ""
             },
             "require": {
@@ -1119,11 +1308,11 @@
             ],
             "description": "The Illuminate Queue package.",
             "homepage": "https://laravel.com",
-            "time": "2020-01-29T18:08:06+00:00"
+            "time": "2020-02-06T07:12:35+00:00"
         },
         {
             "name": "illuminate/session",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/session.git",
@@ -1174,16 +1363,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "78b85d2ae298a46edfc57baa5eddd2594b9d313a"
+                "reference": "2601f1f2e9a1bf7724928c3c2892519667f9983f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/78b85d2ae298a46edfc57baa5eddd2594b9d313a",
-                "reference": "78b85d2ae298a46edfc57baa5eddd2594b9d313a",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/2601f1f2e9a1bf7724928c3c2892519667f9983f",
+                "reference": "2601f1f2e9a1bf7724928c3c2892519667f9983f",
                 "shasum": ""
             },
             "require": {
@@ -1231,11 +1420,11 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
-            "time": "2020-02-03T14:22:17+00:00"
+            "time": "2020-02-10T23:12:52+00:00"
         },
         {
             "name": "illuminate/translation",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/translation.git",
@@ -1281,7 +1470,7 @@
         },
         {
             "name": "illuminate/validation",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/validation.git",
@@ -1333,7 +1522,7 @@
         },
         {
             "name": "illuminate/view",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/view.git",
@@ -1382,16 +1571,16 @@
         },
         {
             "name": "laravel/lumen-framework",
-            "version": "v6.3.3",
+            "version": "v6.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/lumen-framework.git",
-                "reference": "425b383e00843feb99c2b0c74129af3c0244ea29"
+                "reference": "fe1c3b4858d13e24621ac9961a45a3f93adf4577"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/lumen-framework/zipball/425b383e00843feb99c2b0c74129af3c0244ea29",
-                "reference": "425b383e00843feb99c2b0c74129af3c0244ea29",
+                "url": "https://api.github.com/repos/laravel/lumen-framework/zipball/fe1c3b4858d13e24621ac9961a45a3f93adf4577",
+                "reference": "fe1c3b4858d13e24621ac9961a45a3f93adf4577",
                 "shasum": ""
             },
             "require": {
@@ -1464,7 +1653,7 @@
                 "laravel",
                 "lumen"
             ],
-            "time": "2020-02-04T15:20:14+00:00"
+            "time": "2020-02-06T14:24:22+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1829,6 +2018,56 @@
             "time": "2017-02-14T16:28:37+00:00"
         },
         {
+            "name": "psr/http-message",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2016-08-06T14:39:51+00:00"
+        },
+        {
             "name": "psr/log",
             "version": "1.1.2",
             "source": {
@@ -1922,6 +2161,46 @@
                 "simple-cache"
             ],
             "time": "2017-10-23T01:57:42+00:00"
+        },
+        {
+            "name": "ralouphie/getallheaders",
+            "version": "3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralouphie/getallheaders.git",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^5 || ^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/getallheaders.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
+            "description": "A polyfill for getallheaders.",
+            "time": "2019-03-08T08:55:37+00:00"
         },
         {
             "name": "symfony/console",
@@ -3386,16 +3665,16 @@
         },
         {
             "name": "illuminate/routing",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/routing.git",
-                "reference": "918cf433a4ba5a0d67abe3a18050ce7a1bbcf775"
+                "reference": "67964bd580f8b535717c2dc34bc6e74d0e762089"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/routing/zipball/918cf433a4ba5a0d67abe3a18050ce7a1bbcf775",
-                "reference": "918cf433a4ba5a0d67abe3a18050ce7a1bbcf775",
+                "url": "https://api.github.com/repos/illuminate/routing/zipball/67964bd580f8b535717c2dc34bc6e74d0e762089",
+                "reference": "67964bd580f8b535717c2dc34bc6e74d0e762089",
                 "shasum": ""
             },
             "require": {
@@ -3440,7 +3719,7 @@
             ],
             "description": "The Illuminate Routing package.",
             "homepage": "https://laravel.com",
-            "time": "2020-01-31T08:51:47+00:00"
+            "time": "2020-02-06T14:37:38+00:00"
         },
         {
             "name": "maximebf/debugbar",

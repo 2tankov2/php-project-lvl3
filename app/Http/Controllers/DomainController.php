@@ -5,18 +5,20 @@ namespace App\Http\Controllers;
 use App\Domain;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+use GuzzleHttp\Client;
 
 class DomainController extends Controller
 {
+    protected $client;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Client $client)
     {
-        //
+        $this->client = $client;
     }
 
     public function index($errors = null)
@@ -26,7 +28,7 @@ class DomainController extends Controller
 
     public function main()
     {
-        $domains = Domain::paginate(2);;
+        $domains = Domain::paginate(4);
 
         return view('domains', ['domains' => $domains]);
     }
@@ -47,7 +49,18 @@ class DomainController extends Controller
         }
 
         $url = $request->input('name');
-        $domain = Domain::updateOrCreate(['name' => $url], ['updated_at' => date("Y-m-d H:i:s")]);
+        $response = $this->client->get($url);
+
+        $contentLength = $response->getHeader('Content-Length');
+        $statusCode = $response->getStatusCode();
+        $body = $response->getBody()->getContents();
+        $domain = Domain::updateOrCreate(
+            ['name' => $url],
+            ['updated_at' => date("Y-m-d H:i:s"),
+            'content_length' => $contentLength[0],
+            'status_code' => $statusCode,
+            'body' => $body]
+        );
         return redirect()->route('showDomain', ['id' => $domain->id]);
     }
 

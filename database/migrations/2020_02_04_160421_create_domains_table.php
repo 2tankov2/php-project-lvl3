@@ -19,9 +19,9 @@ class CreateDomainsTable extends Migration
                 $table->string('name');
                 $table->dateTime('updated_at')->nullable();
                 $table->dateTime('created_at')->nullable();
-                $table->integer('content_length')->nullable();
+                $table->string('content_length')->nullable();
                 $table->integer('status_code')->nullable();
-                $table->string('body')->nullable();
+                $table->text('body')->nullable();
             }
         );
     }

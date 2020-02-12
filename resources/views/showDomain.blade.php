@@ -25,7 +25,6 @@
                 <th scope="col">Content_Length</th>
             </tr>
         </thead>
-        {{ var_dump($domain) }}
         <tbody>
             <tr>
                 <td>

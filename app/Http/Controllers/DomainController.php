@@ -49,15 +49,16 @@ class DomainController extends Controller
         }
 
         $url = $request->input('name');
-        $response = $this->client->get($url);
 
-        $contentLength = $response->getHeader('Content-Length');
+        $response = $this->client->request('GET', $url);
+
         $statusCode = $response->getStatusCode();
         $body = $response->getBody()->getContents();
+        $contentLength = $response->getHeader('Content-Length')[0] ?? strlen($body);
         $domain = Domain::updateOrCreate(
             ['name' => $url],
             ['updated_at' => date("Y-m-d H:i:s"),
-            'content_length' => $contentLength[0],
+            'content_length' => $contentLength,
             'status_code' => $statusCode,
             'body' => $body]
         );

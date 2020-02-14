@@ -17,11 +17,14 @@
 
 $router->get('/', ['uses' => 'DomainController@index', 'as' => 'main']);
 
-$router->get('/domains', ['uses' => 'DomainController@main', 'as' => 'listDomains']);
+$router->get('/domains', ['uses' => 'DomainController@showAll', 'as' => 'listDomains']);
 
 $router->get('/domains/{id}', [
     'uses' => 'DomainController@show',
     'as' => 'showDomain'
 ]);
 
-$router->post('/domains', 'DomainController@store');
+$router->post('/domains', [
+    'uses' => 'DomainController@store',
+    'as' => 'storeDomain'
+]);

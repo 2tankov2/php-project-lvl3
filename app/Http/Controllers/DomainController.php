@@ -26,7 +26,7 @@ class DomainController extends Controller
         return view('index', ['errors' => $errors]);
     }
 
-    public function main()
+    public function showAll()
     {
         $domains = Domain::paginate(4);
 

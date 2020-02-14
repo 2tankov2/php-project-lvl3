@@ -6,7 +6,11 @@ use Laravel\Lumen\Testing\DatabaseMigrations;
 use Laravel\Lumen\Testing\DatabaseTransactions;
 use Tests\TestCase;
 use App\Domain;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Client;
+use Illuminate\Http\Resources\Json\Resource;
 
 class AppTest extends TestCase
 {
@@ -36,8 +40,9 @@ class AppTest extends TestCase
 
     public function testShowDomains()
     {
-        $this->call('GET', '/domains');
-        $this->assertResponseOk();
+        factory(Domain::class, 20)->create();
+        $this->get(route('listDomains'));
+        $this->assertResponseStatus(200);
     }
 
     public function testShow()
@@ -48,15 +53,24 @@ class AppTest extends TestCase
             ->assertResponseStatus(200);
     }
 
-    public function testShowAll()
-    {
-        factory(Domain::class, 20)->create();
-        $this->get(route('listDomains'));
-        $this->assertResponseStatus(200);
-    }
-
     public function testIndex()
     {
-        $client = new Client();
+        $path = __DIR__ . '/fixtures/index.html';
+        $body = file_get_contents($path);
+        $contentLength = strlen($body);
+        $mock = new MockHandler([
+            new Response(200, ['Content-Length' => $contentLength], $body)
+        ]);
+        $handlerStack = HandlerStack::create($mock);
+        $client = new Client(['handler' => $handlerStack]);
+        $this->app->instance(Client::class, $client);
+        $this->post(route('storeDomain', ['name' => 'https://www.google.com/']));
+        $this->seeInDatabase('domains', [
+                'name' => 'https://www.google.com/',
+                'content_length' => $contentLength,
+                'status_code' => 200,
+                'body' => $body
+        ]);
+        $this->assertResponseStatus(302);
     }
 }

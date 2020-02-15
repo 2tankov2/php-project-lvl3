@@ -27,5 +27,11 @@ $factory->define(User::class, function (Faker $faker) {
 $factory->define(Domain::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
+        'content_length' => '1000',
+        'status_code' => $faker->numberBetween($min = 200, $max = 500) ,
+        'body' => $faker->randomHtml(),
+        'h1' => $faker->text(),
+        'keywords' => $faker->text(),
+        'description' => $faker->text()
     ];
 });

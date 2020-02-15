@@ -22,6 +22,9 @@ class CreateDomainsTable extends Migration
                 $table->string('content_length')->nullable();
                 $table->integer('status_code')->nullable();
                 $table->text('body')->nullable();
+                $table->string('h1')->nullable();
+                $table->string('keywords')->nullable();
+                $table->string('description')->nullable();
             }
         );
     }

@@ -10,7 +10,6 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Client;
-use Illuminate\Http\Resources\Json\Resource;
 
 class AppTest extends TestCase
 {
@@ -38,7 +37,7 @@ class AppTest extends TestCase
         $this->assertEquals(1, Domain::count());
     }
 
-    public function testShowDomains()
+    public function testShowAll()
     {
         factory(Domain::class, 20)->create();
         $this->get(route('listDomains'));
@@ -53,20 +52,21 @@ class AppTest extends TestCase
             ->assertResponseStatus(200);
     }
 
-    public function testIndex()
+    public function testStore()
     {
-        $path = __DIR__ . '/fixtures/index.html';
+        $url = 'https://mail.ru/';
+        $path = 'tests/fixtures/index.html';
         $body = file_get_contents($path);
         $contentLength = strlen($body);
         $mock = new MockHandler([
             new Response(200, ['Content-Length' => $contentLength], $body)
         ]);
         $handlerStack = HandlerStack::create($mock);
-        $client = new Client(['handler' => $handlerStack]);
-        $this->app->instance(Client::class, $client);
-        $this->post(route('storeDomain', ['name' => 'https://www.google.com/']));
+        $this->app->instance(Client::class, new Client(['handler' => $handlerStack]));
+        $this->post(route('storeDomain'), ['name' => $url]);
+
         $this->seeInDatabase('domains', [
-                'name' => 'https://www.google.com/',
+                'name' => $url,
                 'content_length' => $contentLength,
                 'status_code' => 200,
                 'body' => $body

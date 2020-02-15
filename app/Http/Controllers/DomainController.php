@@ -60,7 +60,8 @@ class DomainController extends Controller
         $body = $response->getBody()->getContents();
         $contentLength = $response->getHeader('Content-Length')[0] ?? strlen($body);
         $document = new Document($url, true);
-        $heading = $document->first('h1')->text();
+        $heading = $document->has('h1') ?
+                $document->first('h1')->text() : null;
         $keywords =  $document->has('meta[name=keywords]') ?
                 $document->first('meta[name=keywords]')->getAttribute('content') : null;
         $description = $document->has('meta[name=description]') ?

@@ -12,7 +12,7 @@
 
 @section('analyser')
 <div class="container">
-    <h3 class="display-5">Весь список, проверенных адресов:</h3>
+    <h3 class="display-6">Весь список, проверенных адресов:</h3>
     <hr/>
     <div class="list-group">
         @foreach($domains->all() as $domain)

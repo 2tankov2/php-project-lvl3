@@ -3,7 +3,7 @@
 @section('title', 'Page Domain')
 
 @section('content')
-    <h2 class="display-3">Мой первый проект на lumen с применением bootstrap.</h2>
+    <h2 class="display-6">Мой первый проект на lumen с применением bootstrap.</h2>
     <div>
     <h3><a class="nav-link" href="/"><span class="badge badge-primary">Main page</span></a></h3>
     <h3><a class="nav-link" href={{ route('listDomains') }}><span class="badge badge-primary">Domains</span></a></h3>
@@ -12,7 +12,7 @@
 
 @section('analyser')
 <div class="container">
-    <h3 class="display-5">Данные, введенного адреса веб-сайта:</h3>
+    <h3 class="display-6">Данные, введенного адреса веб-сайта:</h3>
     <hr/>
     <table class="table">
         <thead class="thead-dark">

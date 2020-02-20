@@ -40,7 +40,7 @@ class AppTest extends TestCase
     public function testShowAll()
     {
         factory(Domain::class, 20)->create();
-        $this->get(route('listDomains'));
+        $this->get(route('domains'));
         $this->assertResponseStatus(200);
     }
 
@@ -48,7 +48,7 @@ class AppTest extends TestCase
     {
         $domains = factory('App\Domain', 14)->create();
         $id = $domains->first()->id;
-        $this->get(route('showDomain', ['id' => $id]))
+        $this->get(route('domain', ['id' => $id]))
             ->assertResponseStatus(200);
     }
 
@@ -63,7 +63,7 @@ class AppTest extends TestCase
         ]);
         $handlerStack = HandlerStack::create($mock);
         $this->app->instance(Client::class, new Client(['handler' => $handlerStack]));
-        $this->post(route('storeDomain'), ['name' => $url]);
+        $this->post(route('domains'), ['name' => $url]);
 
         $this->seeInDatabase('domains', [
                 'name' => $url,

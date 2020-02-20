@@ -6,7 +6,7 @@
     <h2 class="display-6">Мой первый проект на lumen с применением bootstrap.</h2>
     <div>
     <h3><a class="nav-link" href="/"><span class="badge badge-primary">Main page</span></a></h3>
-    <h3><a class="nav-link" href={{ route('listDomains') }}><span class="badge badge-primary">Domains</span></a></h3>
+    <h3><a class="nav-link" href={{ route('domains') }}><span class="badge badge-primary">Domains</span></a></h3>
     </div>
 @endsection
 

@@ -77,6 +77,6 @@ class DomainController extends Controller
             'description' => $description
             ]
         );
-        return redirect()->route('showDomain', ['id' => $domain->id]);
+        return redirect()->route('domain', ['id' => $domain->id]);
     }
 }

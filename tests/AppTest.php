@@ -15,14 +15,13 @@ class AppTest extends TestCase
 {
     use DatabaseMigrations;
 
-    /**
-     * The record creation test verifies
-     * that such a record has appeared in the database.
-     *
-     * @return void
-     */
+    public function testIndex()
+    {
+        $this->call('GET', '/');
+        $this->assertResponseOk();
+    }
 
-    public function testHasRecordInDB()
+    public function testSave()
     {
         $domain = factory('App\Domain')->make(['name' => 'https://mail.ru/',]);
 

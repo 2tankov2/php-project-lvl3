@@ -21,7 +21,7 @@ class AppTest extends TestCase
         $this->assertResponseOk();
     }
 
-    public function testSave()
+    public function testSaveInDB()
     {
         $domain = factory('App\Domain')->make(['name' => 'https://mail.ru/',]);
 

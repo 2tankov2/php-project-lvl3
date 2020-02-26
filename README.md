@@ -6,4 +6,4 @@
 
 [![Build Status](https://travis-ci.org/2tankov2/php-project-lvl3.svg?branch=master)](https://travis-ci.org/2tankov2/php-project-lvl3)
 
-## [PAGE ANALISER](https://warm-tor-29171.herokuapp.com/)
+## [PAGE ANALIZER](https://warm-tor-29171.herokuapp.com/)

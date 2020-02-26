@@ -2,15 +2,7 @@
 
 @section('title', 'Page Domain')
 
-@section('content')
-    <h2 class="display-6">Мой первый проект на lumen с применением bootstrap.</h2>
-    <div>
-    <h3><a class="nav-link" href="/"><span class="badge badge-primary">Main page</span></a></h3>
-    <h3><a class="nav-link" href={{ route('domains') }}><span class="badge badge-primary">Domains</span></a></h3>
-    </div>
-@endsection
-
-@section('analyser')
+@section('analyzer')
 <div class="container">
     <h3 class="display-6">Данные, введенного адреса веб-сайта:</h3>
     <hr/>
@@ -24,49 +16,49 @@
             <tr>
                 <th scope="row">Name</th>
                 <td>
-                    {{ $domain['name'] }}
+                    {{ $domain->name }}
                 </td>
             </tr>
             <tr>
                 <th scope="row">Updated</th>
                 <td>
-                    {{ $domain['updated_at'] }}
+                    {{ $domain->updated_at }}
                 </td>
             </tr>
             <tr>
                 <th scope="row">Created</th>
                 <td>
-                    {{ $domain['created_at'] }}
+                    {{ $domain->created_at }}
                 </td>
             </tr>
             <tr>
                 <th scope="row">Status_Code</th>
                 <td>
-                    {{ $domain['status_code'] }}
+                    {{ $domain->status_code }}
                 </td>
             </tr>
             <tr>
                 <th scope="row">Content_Length</th>
                 <td>
-                    {{ $domain['content_length'] }}
+                    {{ $domain->content_length }}
                 </td>
             </tr>
             <tr>
                 <th scope="row">h1</th>
                 <td>
-                    {{ $domain['h1'] }}
+                    {{ $domain->h1 }}
                 </td>
             </tr>
             <tr>
                 <th scope="row">keywords</th>
                 <td>
-                    {{ $domain['keywords'] }}
+                    {{ $domain->keywords }}
                 </td>
             </tr>
             <tr>
                 <th scope="row">description</th>
                 <td>
-                    {{ $domain['description'] }}
+                    {{ $domain->description }}
                 </td>
             </tr>
         </tbody>

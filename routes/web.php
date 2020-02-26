@@ -15,9 +15,9 @@
     //return $router->app->version();
 //});
 
-$router->get('/', ['uses' => 'DomainController@index', 'as' => 'main']);
+$router->get('/', ['uses' => 'AppController@index', 'as' => 'main']);
 
-$router->get('/domains', ['uses' => 'DomainController@showAll', 'as' => 'domains']);
+$router->get('/domains', ['uses' => 'DomainController@index', 'as' => 'domains']);
 
 $router->get('/domains/{id}', [
     'uses' => 'DomainController@show',

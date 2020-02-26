@@ -11,11 +11,15 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                @yield('content')
+                <h2 class="display-6">Мой первый проект на lumen с применением bootstrap.</h2>
+                <div>
+                    <h3><a class="nav-link" href="/"><span class="badge badge-primary">Main page</span></a></h3>
+                    <h3><a class="nav-link" href={{ route('domains') }}><span class="badge badge-primary">Domains</span></a></h3>
+                </div>
             </div>
         </nav>
         <div class="jumbotron">
-            @yield('analyser')
+            @yield('analyzer')
         </div>
     </body>
 </html>

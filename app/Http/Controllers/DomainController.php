@@ -22,22 +22,17 @@ class DomainController extends Controller
         $this->client = $client;
     }
 
-    public function index($errors = null)
+    public function index()
     {
-        return view('index', ['errors' => $errors]);
-    }
+        $domains = Domain::paginate(8);
 
-    public function showAll()
-    {
-        $domains = Domain::paginate(5);
-
-        return view('domains', ['domains' => $domains]);
+        return view('domains.index', ['domains' => $domains]);
     }
 
     public function show($id)
     {
         $dataDomain = Domain::findOrFail($id);
-        return view('showDomain', ['domain' => $dataDomain]);
+        return view('domains.show', ['domain' => $dataDomain]);
     }
 
     public function store(Request $request)
@@ -66,17 +61,24 @@ class DomainController extends Controller
                 $document->first('meta[name=keywords]')->getAttribute('content') : null;
         $description = $document->has('meta[name=description]') ?
                 $document->first('meta[name=description]')->getAttribute('content') : null;
-        $domain = Domain::updateOrCreate(
-            ['name' => $url],
-            ['updated_at' => date("Y-m-d H:i:s"),
+
+        if (Domain::where('name', $url)->first()) {
+            $domain = Domain::where('name', $request->name)->first();
+            $domain->update(['updated_at' => date("Y-m-d H:i:s")]);
+        } else {
+            $domain = new Domain();
+            $requestData = [
+            'name' => $url,
             'content_length' => $contentLength,
             'status_code' => $statusCode,
             'body' => $body,
             'h1' => $heading,
             'keywords' => $keywords,
             'description' => $description
-            ]
-        );
+            ];
+            $domain->fill($requestData);
+            $domain->save();
+        }
         return redirect()->route('domain', ['id' => $domain->id]);
     }
 }

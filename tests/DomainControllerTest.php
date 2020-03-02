@@ -18,7 +18,7 @@ class DomainControllerTest extends TestCase
     public function testIndex()
     {
         factory(Domain::class, 8)->create();
-        $this->get(route('domains'));
+        $this->get(route('domain.index'));
         $this->assertResponseStatus(200);
     }
 
@@ -26,7 +26,7 @@ class DomainControllerTest extends TestCase
     {
         $domains = factory('App\Domain', 8)->create();
         $id = $domains->first()->id;
-        $this->get(route('domain', ['id' => $id]))
+        $this->get(route('domain.show', ['id' => $id]))
             ->assertResponseStatus(200);
     }
 
@@ -41,7 +41,7 @@ class DomainControllerTest extends TestCase
         ]);
         $handlerStack = HandlerStack::create($mock);
         $this->app->instance(Client::class, new Client(['handler' => $handlerStack]));
-        $this->post(route('domains'), ['name' => $url]);
+        $this->post(route('domain.store'), ['name' => $url]);
 
         $this->seeInDatabase('domains', [
                 'name' => $url,

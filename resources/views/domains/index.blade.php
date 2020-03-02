@@ -7,8 +7,8 @@
     <h3 class="display-6">Весь список, проверенных адресов:</h3>
     <hr/>
     <div class="list-group">
-        @foreach($domains->all() as $domain)
-            <a class="list-group-item list-group-item-success" href={{ route('domain', ['id' => $domain->id]) }}>{{ $domain['name'] }}</a>
+        @foreach($domains as $domain)
+            <a class="list-group-item list-group-item-success" href={{ route('domain.show', ['id' => $domain->id]) }}>{{ $domain['name'] }}</a>
         @endforeach
     </div>
     <div class="pagination">

@@ -62,8 +62,8 @@ class DomainController extends Controller
         $description = $document->has('meta[name=description]') ?
                 $document->first('meta[name=description]')->getAttribute('content') : null;
 
-        if (Domain::where('name', $url)->first()) {
-            $domain = Domain::where('name', $request->name)->first();
+        $domain = Domain::where('name', $request->name)->first();
+        if ($domain) {
             $domain->update(['updated_at' => date("Y-m-d H:i:s")]);
         } else {
             $domain = new Domain();
@@ -79,6 +79,6 @@ class DomainController extends Controller
             $domain->fill($requestData);
             $domain->save();
         }
-        return redirect()->route('domain', ['id' => $domain->id]);
+        return redirect()->route('domain.show', ['id' => $domain->id]);
     }
 }
